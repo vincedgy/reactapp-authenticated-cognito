@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { signUp } from "./auth"
+import { Button, Form, FormInput, Segment } from "semantic-ui-react"
 
 export default function Signup() {
   const [username, setUsername] = useState("")
@@ -22,38 +23,40 @@ export default function Signup() {
 
   if (success) {
     return (
-      <div>
+      <Segment>
         <h2>Signup successful!</h2>
         <p>Please check your email for the confirmation code.</p>
-      </div>
+      </Segment>
     )
   }
 
   return (
-    <div>
+    <Segment>
       <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <FormInput
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <input
+        <FormInput
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
+        <FormInput
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Signup</button>
-      </form>
-      {error && <p>{error}</p>}
-    </div>
+        <Button primary submit>Signup</Button>
+      </Form>
+      <p>
+        {error && <p>{error}</p>}
+      </p>
+    </Segment>
   )
 }

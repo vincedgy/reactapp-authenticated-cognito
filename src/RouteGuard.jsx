@@ -6,7 +6,7 @@ function RouteGuard({ children }) {
   const { user, isLoading } = useContext(AuthContext)
 
   if (isLoading) {
-    return <></>
+    return <>Loading...</>
   }
 
   if (!user) {

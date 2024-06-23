@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { confirmSignUp } from "./auth"
+import { FormInput, Form, Button } from "semantic-ui-react"
 
 export default function ConfirmSignUp() {
   const [username, setUsername] = useState("")
@@ -31,21 +32,23 @@ export default function ConfirmSignUp() {
   return (
     <div>
       <h2>Confirm Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <label>Username</label>
+        <FormInput
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <input
+        <label>Confirmation code</label>
+        <FormInput
           type="text"
           placeholder="Confirmation code"
           value={code}
           onChange={(e) => setCode(e.target.value)}
         />
-        <button type="submit">Confirm</button>
-      </form>
+        <Button primary type="submit">Confirm</Button>
+      </Form>
       {error && <p>{error}</p>}
     </div>
   )

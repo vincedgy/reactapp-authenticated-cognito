@@ -1,8 +1,10 @@
+import { Container, Header } from 'semantic-ui-react';
 export default function Contact() {
   return (
-    <div>
-      <h1>Contact</h1>
+    <Container>
+      <Header as="h1">Who are we ?</Header>
+
       <p>Get in touch with us!</p>
-    </div>
-  )
+    </Container>
+  );
 }
